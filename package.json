@@ -1,0 +1,17 @@
+{
+  "name": "peliculas-api",
+  "version": "1.0.0",
+  "description": "API REST en Node.js para gestionar Género, Director, Productora, Tipo y Media (películas y series)",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "node --watch src/server.js"
+  },
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "mongoose": "^8.5.1"
+  }
+}

@@ -1,0 +1,619 @@
+{
+  "info": {
+    "name": "API Películas y Series",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:3000/api"
+    },
+    {
+      "key": "generoId",
+      "value": ""
+    },
+    {
+      "key": "directorId",
+      "value": ""
+    },
+    {
+      "key": "productoraId",
+      "value": ""
+    },
+    {
+      "key": "tipoId",
+      "value": ""
+    },
+    {
+      "key": "mediaId",
+      "value": ""
+    }
+  ],
+  "item": [
+    {
+      "name": "Género",
+      "item": [
+        {
+          "name": "Crear Género",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/generos",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "generos"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nombre\": \"Acción\",\n  \"estado\": \"Activo\",\n  \"descripcion\": \"Películas de acción\"\n}"
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "const j = pm.response.json(); if (j._id) pm.collectionVariables.set('generoId', j._id);"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Listar Género",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/generos",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "generos"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Obtener Género por ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/generos/{{generoId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "generos",
+                "{{generoId}}"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Actualizar Género",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/generos/{{generoId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "generos",
+                "{{generoId}}"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"descripcion\": \"Descripción actualizada\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Eliminar Género",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/generos/{{generoId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "generos",
+                "{{generoId}}"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Director",
+      "item": [
+        {
+          "name": "Crear Director",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/directores",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "directores"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nombres\": \"Christopher Nolan\",\n  \"estado\": \"Activo\"\n}"
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "const j = pm.response.json(); if (j._id) pm.collectionVariables.set('directorId', j._id);"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Listar Director",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/directores",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "directores"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Obtener Director por ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/directores/{{directorId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "directores",
+                "{{directorId}}"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Actualizar Director",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/directores/{{directorId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "directores",
+                "{{directorId}}"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nombres\": \"Christopher Edward Nolan\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Eliminar Director",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/directores/{{directorId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "directores",
+                "{{directorId}}"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Productora",
+      "item": [
+        {
+          "name": "Crear Productora",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/productoras",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "productoras"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nombre\": \"Warner Bros\",\n  \"estado\": \"Activo\",\n  \"slogan\": \"Más que cine\",\n  \"descripcion\": \"Estudio de cine\"\n}"
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "const j = pm.response.json(); if (j._id) pm.collectionVariables.set('productoraId', j._id);"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Listar Productora",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/productoras",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "productoras"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Obtener Productora por ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/productoras/{{productoraId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "productoras",
+                "{{productoraId}}"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Actualizar Productora",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/productoras/{{productoraId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "productoras",
+                "{{productoraId}}"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"slogan\": \"Slogan actualizado\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Eliminar Productora",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/productoras/{{productoraId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "productoras",
+                "{{productoraId}}"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Tipo",
+      "item": [
+        {
+          "name": "Crear Tipo",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/tipos",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "tipos"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nombre\": \"Película\",\n  \"descripcion\": \"Largometraje\"\n}"
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "const j = pm.response.json(); if (j._id) pm.collectionVariables.set('tipoId', j._id);"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Listar Tipo",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/tipos",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "tipos"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Obtener Tipo por ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/tipos/{{tipoId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "tipos",
+                "{{tipoId}}"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Actualizar Tipo",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/tipos/{{tipoId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "tipos",
+                "{{tipoId}}"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"descripcion\": \"Largometraje de cine\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Eliminar Tipo",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/tipos/{{tipoId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "tipos",
+                "{{tipoId}}"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Media",
+      "item": [
+        {
+          "name": "Crear Media",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/medias",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "medias"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"serial\": \"MED-001\",\n  \"titulo\": \"El caballero de la noche\",\n  \"sinopsis\": \"Batman enfrenta al Joker.\",\n  \"url\": \"https://ejemplo.com/el-caballero-de-la-noche\",\n  \"imagen\": \"https://ejemplo.com/portada.jpg\",\n  \"anioEstreno\": 2008,\n  \"genero\": \"{{generoId}}\",\n  \"director\": \"{{directorId}}\",\n  \"productora\": \"{{productoraId}}\",\n  \"tipo\": \"{{tipoId}}\"\n}"
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "const j = pm.response.json(); if (j._id) pm.collectionVariables.set('mediaId', j._id);"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Listar Media",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/medias",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "medias"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Obtener Media por ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/medias/{{mediaId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "medias",
+                "{{mediaId}}"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Actualizar Media",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/medias/{{mediaId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "medias",
+                "{{mediaId}}"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"titulo\": \"Título actualizado\",\n  \"anioEstreno\": 2009\n}"
+            }
+          }
+        },
+        {
+          "name": "Eliminar Media",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/medias/{{mediaId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "medias",
+                "{{mediaId}}"
+              ]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
